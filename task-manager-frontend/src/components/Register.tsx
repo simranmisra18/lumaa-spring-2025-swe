@@ -1,30 +1,82 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+const Register: React.FC = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
-interface Task {
-    id: number;
-    title: string;
-}
+    const handleRegister = async (e: React.FormEvent) => {
+        e.preventDefault();
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+        const response = await fetch('http://localhost:3000/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, confirmPassword }),
+        });
 
-const Tasks: React.FC = () => {
-    const [tasks, setTasks] = useState<Task[]>([]); // Explicitly define the state type
-
-    useEffect(() => {
-        fetch('http://localhost:3000/tasks') // Replace with your actual backend URL
-            .then(response => response.json())
-            .then((data: Task[]) => setTasks(data)) // Ensure the response is of type Task[]
-            .catch(error => console.error('Error fetching tasks:', error));
-    }, []);
+        if (response.ok) {
+            alert('Registration successful! You can now log in.');
+            navigate('/login');
+        } else {
+            alert('Error registering user');
+        }
+    };
 
     return (
-        <div>
-            <h2>Tasks</h2>
-            {tasks.map((task) => (
-                <div key={task.id}>{task.title}</div>
-            ))}
+        <div style={{ textAlign: 'center' }}>
+            <h2>Register</h2>
+            <form
+                onSubmit={handleRegister}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}
+            >
+                <input
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    style={{ padding: '8px', width: '200px' }}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    style={{ padding: '8px', width: '200px' }}
+                />
+                <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                    style={{ padding: '8px', width: '200px' }}
+                />
+                <button
+                    type="submit"
+                    style={{ padding: '8px', width: '210px', cursor: 'pointer' }}
+                >
+                    Register
+                </button>
+            </form>
+            <p>
+                Already have an account?{' '}
+                <span
+                    style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+                    onClick={() => navigate('/login')}
+                >
+                    Login here
+                </span>
+            </p>
         </div>
     );
 };
 
-export default Tasks;
+export default Register;
