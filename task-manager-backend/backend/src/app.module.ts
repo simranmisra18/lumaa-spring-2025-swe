@@ -14,8 +14,8 @@ import {ConfigModule} from "@nestjs/config";
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'postgres',
-      password: 'Bugli@5420',
+      username: 'POSTGRES_USERNAME',
+      password: 'YOUR_PASSWORD',
       database: 'task_manager',
       entities: [User, Task],
       synchronize: true, // 🔥 Auto-create tables based on entities
