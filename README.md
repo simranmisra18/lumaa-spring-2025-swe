@@ -44,3 +44,7 @@ Pre-requisites: Make sure there are no other services running on port 3001.
 ## Salary Expectations Per Month
 
 I'm flexible with the salary, with my approximate expectation be: $3000/month.
+
+## Video Demo
+
+Here is the Google Drive Link of the demo video: https://drive.google.com/file/d/1AULg-fGlg_T4Aty-y7ny-Ch6N7OOTu-X/view?usp=sharing
