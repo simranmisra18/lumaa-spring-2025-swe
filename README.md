@@ -1,5 +1,16 @@
 # Full-Stack Coding Solution Implementation
 
+## Prerequisites
+
+1. Node.js
+2. npm
+3. PostgreSQL database
+4. Clone this repository by using the following command:
+
+```bash
+git clone https://github.com/simranmisra18/lumaa-spring-2025-swe.git
+```
+
 ## Steps to Setup the Database
 
 1. Open your PostgreSQL instance, and create a new database with any name (eg. 'task_manager').
@@ -21,13 +32,13 @@
 ## Run the Backend (Port 3000)
 
 Pre-requisites: Make sure there are no other services running on port 3000.
-1. Open the following path on Powershell or command prompt: lumaa-spring-2025-swe\task-manager-backend\backend.
+1. Open the following path on Powershell/command prompt/shell: lumaa-spring-2025-swe\task-manager-backend\backend.
 2. Run the command: npm run start. This should start the backend successfully on port 3000.
 
 ## Run the Frontend (Port 3001)
 
 Pre-requisites: Make sure there are no other services running on port 3001.
-1. Open the following path on Powershell or command prompt: lumaa-spring-2025-swe\task-manager-frontend.
+1. Open the following path on Powershell/command prompt/shell: lumaa-spring-2025-swe\task-manager-frontend.
 2. Run the command: npm start. There might be an error in the powershell or command prompt saying there's already another service running on port 3000 (which is the backend service already running), it would ask you if you would like to run it on a different port. Type 'y' to answer yes. This should start the frontend successfully on port 3001.
 3. The service should start running at: "http://localhost:3001". If it didn't start automatically, then open any browser and hit this URL. You should be able to see the Login page.
 
@@ -41,9 +52,11 @@ Pre-requisites: Make sure there are no other services running on port 3001.
 6. Clicking on the Logout button should logout the user and take you back to the login page.
 7. Try opening the URL "http://localhost:3001/tasks" in an incognito window where the JWT token is not saved. There should be an error message shown in the alerts saying you need to login first. Try logging in using an incorrect JWT token. You should not be able to login.
 
+Note: No automated test suite is included due to the minimal nature of this challenge, but the code is structured so that you could easily add integration/unit tests as needed.
+
 ## Salary Expectations Per Month
 
-I'm flexible with the salary, with my approximate expectation be: $3000/month.
+I'm flexible with the salary, with my approximate expectation be: $2400/month.
 
 ## Video Demo
 
