@@ -10,6 +10,18 @@
 ```bash
 git clone https://github.com/simranmisra18/lumaa-spring-2025-swe.git
 ```
+5. Go to the following folder path: lumaa-spring-2025-swe\task-manager-backend\backend. Run the following commands in this path:
+
+```bash
+npm install express cors bcryptjs jsonwebtoken pg dotenv
+npm install --save-dev typescript ts-node nodemon @types/node @types/express
+```
+6. Go to the following folder path: lumaa-spring-2025-swe\task-manager-frontend. Run the following commands in this path:
+
+```bash
+npm install axios
+npm install react-router-dom
+```
 
 ## Steps to Setup the Database
 
